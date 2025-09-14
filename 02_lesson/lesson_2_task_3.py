@@ -1,20 +1,17 @@
 import math
 
 
-def square(side):
-    area = side ** 2
-
-    # Проверяем, является ли side целым числом
-    if isinstance(side, float):
-        # Если это float, округляем результат вверх
-        return math.ceil(area)
+def square(side_str):
+    if '.' in side_str:
+        side = float(side_str)
+        result = math.ceil(side ** 2)
     else:
-        # В противном случае возвращаем обычный результат
-        return area
+        side = int(side_str)
+        result = side ** 2
+    return result
 
 
-side = float(input("Введите сторону квадрата: "))
-result = square(side)
+side_str = input("Введите сторону квадрата: ")
+result = square(side_str)
 
-
-print(f"Площадь квадрата со стороной {side}: {result}")
+print(f"Площадь квадрата со стороной {side_str}: {result}")
