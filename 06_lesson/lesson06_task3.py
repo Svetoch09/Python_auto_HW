@@ -12,11 +12,9 @@ driver.get("https://bonigarcia.dev/selenium-webdriver-java/"
            "loading-images.html")
 waiter = WebDriverWait(driver, 10, 0.5)
 
-text_locator = "#text"
-picture_locator = "#award"
+picture_locator = "#image-container [alt = 'award']"
 waiter.until(
-    EC.text_to_be_present_in_element((By.CSS_SELECTOR, text_locator),
-                                     "Done!"))
+    EC.visibility_of_element_located((By.CSS_SELECTOR, picture_locator)))
 
 pic_attribute = (driver.find_element(By.CSS_SELECTOR, picture_locator)
                  .get_attribute("src"))
