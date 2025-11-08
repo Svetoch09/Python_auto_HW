@@ -35,6 +35,7 @@ def project_service(auth_token):
     """
     return ProjectService(auth_token)
 
+
 @pytest.fixture(scope="function")
 def new_project_id(project_service: ProjectService):
     """
@@ -54,6 +55,7 @@ def new_project_id(project_service: ProjectService):
             project_service.delete_project(project_id)
         except Exception:
             pass
+
 
 @pytest.fixture
 def unauthenticated_project_service():
